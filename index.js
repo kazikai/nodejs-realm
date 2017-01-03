@@ -5,8 +5,8 @@ const realm = require('realm');
 const app = express();
 
 const TodoSchema = {
-    name: 'TodoSchema',
-    property: {
+    name: 'Todo',
+    properties: {
         timestamp: 'date',
         id: 'string',
         todo: 'string'
@@ -17,6 +17,8 @@ const todoRealm = new Realm({
     path: 'todo.realm',
     schema: [TodoSchema]
 });
+
+const dirName = "html"
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -29,19 +31,21 @@ app.get('/', function(req, res) {
     });
 });
 app.get('/write', function(req, res) {
-    res.sendFile(__dirname + "/write.html");
+    console.log(__dirname);
+    res.sendFile(__dirname + "/html/write.html");
 });
 app.post('/write', function(req, res) {
     const id = req.body['id'];
     const todo = req.body['todo'];
     const timestamp = new Date();
-    blogRealm.write(() => {
-        blogRealm.create('Todo', {id: id, todo: todo, timestamp: timestamp});
+    console.log( id, todo, timestamp );
+    todoRealm.write(() => {
+        todoRealm.create('Todo', {id: id, todo: todo, timestamp: timestamp});
     });
-    res.sendFile(__dirname + "/write-complete.html");
+    res.sendFile(__dirname + "/html/success.html");
 });
 
 app.listen(3000, function() {
-    console.log("Listen...!");
+    console.log('Listen...3000!');
 });
 
