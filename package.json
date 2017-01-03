@@ -1,0 +1,33 @@
+{
+  "name": "nodejs-realm",
+  "version": "1.0.0",
+  "description": "nodejs with realm example test",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazikai/nodejs-realm.git"
+  },
+  "keywords": [
+    "nodejs",
+    "realm"
+  ],
+  "author": "kazikai84@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kazikai/nodejs-realm/issues"
+  },
+  "homepage": "https://github.com/kazikai/nodejs-realm#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "realm": "^0.15.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0"
+  }
+}
